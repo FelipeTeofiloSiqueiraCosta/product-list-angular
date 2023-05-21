@@ -1,0 +1,25 @@
+<div class="header"><h1>DETALHES DO PRODUTO</h1></div>
+<div class="container">
+  <div>
+    <h1>
+      {{ product?.title }} <span>{{ product?.category }}</span>
+    </h1>
+    <p>{{ product?.description }}</p>
+    <div class="price">
+      <h2>
+        {{
+          product!.price - (product!.discountPercentage * product!.price) / 100
+            | currency : "BRL" : "R$ " : "2.2-2"
+        }}
+      </h2>
+      <h4>
+        {{ product?.price | currency : "BRL" : "R$ " : "2.2-2" }}
+      </h4>
+    </div>
+  </div>
+  <div>
+    <p><span>Desconto: </span> {{ product?.discountPercentage }} %</p>
+    <p><span>Avaliações: </span> {{ product?.rating }} Estrelas</p>
+    <p><span>Marca: </span> {{ product?.brand }}</p>
+  </div>
+</div>

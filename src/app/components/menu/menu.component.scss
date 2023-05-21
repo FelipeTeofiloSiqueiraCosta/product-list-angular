@@ -1,0 +1,31 @@
+.menu {
+  position: relative;
+  ul {
+    padding: 0 0.5rem;
+    display: flex;
+    list-style: none;
+    align-items: center;
+
+    li {
+      margin-right: 1rem;
+
+      &:first-child a {
+        font-family: Pacifico;
+        font-size: 2.4rem;
+        color: #d87f10;
+        padding-right: 1rem;
+        border-right: 3px solid #d87f10;
+      }
+
+      a {
+        font-size: 1.2rem;
+        cursor: pointer;
+        color: black;
+        font-weight: 700;
+      }
+      :hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

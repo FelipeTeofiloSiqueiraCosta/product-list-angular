@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+$gray-400: #6c6c6c;
+$gray-700: #4b4b4b;
+$white: #f7f7f7;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  color: $gray-400;
+  background-color: $white;
+}
+
+@media (max-width: 1080px) {
+  html {
+    font-size: 93.75%; //15px com base no padrão que é 16px
+  }
+}
+
+@media (max-width: 720px) {
+  html {
+    font-size: 87.5%; //14px com base no padrão que é 16px
+  }
+}
+
+body,
+input,
+textarea,
+select,
+button {
+  font: 400 1rem "Roboto", sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit; //pega a cord do elemento pai
+  text-decoration: none;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

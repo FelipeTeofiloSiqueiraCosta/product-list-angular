@@ -1,0 +1,31 @@
+<div class="container">
+  <form (submit)="handleSearchByproductName($event, searched.value)">
+    <input
+      #searched
+      type="search"
+      name="searchByName"
+      placeholder="Search product by name"
+    />
+    <button type="submit">Pesquisar</button>
+  </form>
+  <div class="card-list" *ngIf="productList.length > 0">
+    <div
+      class="card"
+      appVisibleDirective
+      *ngFor="let product of productList; let i = index"
+      [isTargetElement]="i == productList.length - 1"
+      (elementVisible)="fetchData($event)"
+    >
+      <div class="wrapper-image">
+        <img [src]="product.images[0]" alt="Image" />
+      </div>
+      <main>
+        <span>{{ product.brand }}</span>
+        <p>{{ product.description }}</p>
+      </main>
+      <a [routerLink]="['/detail', product.id]">Ver detalhes</a>
+    </div>
+  </div>
+
+  <h3 *ngIf="true" class="loader"></h3>
+</div>

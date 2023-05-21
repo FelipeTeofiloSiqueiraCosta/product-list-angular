@@ -1,0 +1,29 @@
+.global-wrapper {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-areas: "header" "main" "footer";
+  grid-template-rows: 0.2fr 1fr 50px;
+  grid-template-columns: 1fr;
+}
+
+footer {
+  grid-area: footer;
+  width: 100%;
+  border-top: 1px solid rgb(201, 201, 201);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header {
+  display: flex;
+  align-items: center;
+  min-height: 80px;
+  grid-area: header;
+}
+main {
+  grid-area: main;
+}
+aside {
+  grid-area: aside;
+}
