@@ -33,4 +33,10 @@ export class ProductService {
   getById(id: string): Observable<Product> {
     return this.httpClient.get<Product>(`https://dummyjson.com/products/${id}`);
   }
+
+  getByCategory(category: string): Observable<HTTPResponse> {
+    return this.httpClient.get<HTTPResponse>(
+      `https://dummyjson.com/products/search?q=${category}`
+    );
+  }
 }
