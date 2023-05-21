@@ -1,6 +1,7 @@
-Nome do Projeto: Angular Virtualized List with DummyJSON API Integration
+# Nome do Projeto: Angular Virtualized List with DummyJSON API Integration
 
-Descrição:
+## Descrição:
+
 Este projeto em Angular é uma aplicação que utiliza conceitos avançados, como virtualized list, rotas e criação de componentes. A aplicação faz requisições para a API DummyJSON, que é uma API de teste e simulação de dados.
 
 A API DummyJSON é uma ferramenta que permite gerar dados fictícios em formato JSON. Ela é útil para testar e simular respostas de APIs reais durante o desenvolvimento de aplicativos. Ao utilizar essa API, você pode criar diferentes endpoints para obter dados fictícios personalizados e realistas para suas requisições.
