@@ -1,0 +1,110 @@
+.cart-wrapper {
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+
+  gap: 0.5rem;
+
+  main {
+    width: 100%;
+    & section {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+
+      & article {
+        display: flex;
+        flex-direction: column;
+
+        & h1 {
+          margin: 0;
+          font-size: 2rem;
+          font-weight: 100;
+          background-color: #e4a61a;
+          padding: 0.2rem 0.5rem;
+          border-radius: 10px;
+          color: #fff;
+          text-align: center;
+        }
+        & p {
+          margin: 0.5rem 1rem;
+          font-size: 0.875rem;
+          color: #b3b3b3;
+        }
+        & ul {
+          list-style: none;
+          padding: 0 1rem;
+          & li {
+            background-color: #f2f2f2;
+            padding: 0.5rem;
+            display: flex;
+            transition: all 0.3s;
+            div {
+              width: 20%;
+              &:first-child {
+                width: 70%;
+              }
+              &:nth-child(2) {
+                width: 10%;
+              }
+
+              display: flex;
+
+              align-items: center;
+            }
+            &:hover {
+              background-color: #e4e4e4;
+            }
+          }
+          li + li {
+            margin-top: 0.2rem;
+          }
+        }
+      }
+    }
+  }
+  aside {
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    & h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 100;
+      background-color: #e4a61a;
+      padding: 0.2rem 0.5rem;
+      border-radius: 10px;
+      color: #fff;
+      text-align: center;
+    }
+    div {
+      width: 100%;
+      margin: 0.3rem 1rem;
+    }
+    button {
+      width: 50%;
+      border: 0;
+      padding: 0.5rem;
+      color: #fff;
+      background-color: #e4a61a;
+      transition: all 0.2s;
+      align-self: center;
+      margin-top: 1rem;
+      &:hover {
+        background-color: #f2ac07;
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .cart-wrapper {
+    flex-wrap: wrap;
+    padding: 0.5rem 0.3rem;
+  }
+
+  aside {
+    width: 100%;
+  }
+}

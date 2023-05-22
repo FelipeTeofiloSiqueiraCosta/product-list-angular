@@ -1,12 +1,21 @@
 .menu {
-  position: relative;
+  position: fixed;
+  background-color: #f7f7f7fa;
+  width: 100%;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   ul {
+    margin: 0;
     padding: 0 0.5rem;
     display: flex;
     list-style: none;
     align-items: center;
 
     li {
+      position: relative;
       margin-right: 1rem;
 
       &:first-child a {
@@ -14,18 +23,61 @@
         font-size: 2.4rem;
         color: #d87f10;
         padding-right: 1rem;
-        border-right: 3px solid #d87f10;
       }
-
       a {
         font-size: 1.2rem;
         cursor: pointer;
         color: black;
         font-weight: 700;
       }
+      &:not(:first-child)::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -0.5rem;
+        height: 100%;
+        background-color: #d87f10;
+        width: 2px;
+      }
       :hover {
         text-decoration: underline;
       }
     }
+  }
+  & .cart {
+    margin-right: 1rem;
+    a {
+      color: black;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    i {
+      position: relative;
+      font-size: 1.5rem;
+      &::after {
+        content: attr(data-items-length);
+        position: absolute;
+        top: -5px;
+        right: -10px;
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        background-color: #e4a61a;
+        font-size: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 410px) {
+  .cart a span {
+    display: none;
+  }
+  .cart a i {
+    font-size: 2rem !important;
   }
 }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/logged-area/home/home.component';
 import { DetailProductComponent } from './pages/logged-area/detail-product/detail-product.component';
+import { CartComponent } from './components/cart/cart.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -9,6 +10,11 @@ const routes: Routes = [
   {
     path: 'detail/:productId',
     component: DetailProductComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'cart',
+    component: CartComponent,
     pathMatch: 'full',
   },
 ];
