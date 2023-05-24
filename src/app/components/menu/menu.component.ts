@@ -7,10 +7,7 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent implements OnInit {
-  public qteCartItems: number = 0;
-  constructor(private cartService: CartService) {}
+  constructor(public cartService: CartService) {}
 
-  ngOnInit(): void {
-    this.qteCartItems = this.cartService.getQuantityItems;
-  }
+  ngOnInit(): void {}
 }

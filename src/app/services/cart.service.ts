@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Cart } from '../interfaces/cart';
 
-import { HttpClient } from '@angular/common/http';
 import { ProductCart } from '../interfaces/productCart';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  private currentCart: Cart;
-  constructor(private httpClient: HttpClient) {
+  public currentCart: Cart;
+  constructor() {
     const cart = localStorage.getItem('@first-app:cart');
 
     if (cart) {
@@ -53,7 +52,7 @@ export class CartService {
     this.currentCart = cart;
   }
 
-  get getQuantityItems() {
+  get getQuantityProducts() {
     return this.currentCart.products.length;
   }
 }
