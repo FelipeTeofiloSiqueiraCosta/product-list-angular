@@ -3,7 +3,6 @@ export interface ProductCart {
   title: string;
   price: number;
   quantity: number;
-  total: 60;
-  discountPercentage: 8.71;
-  discountedPrice: 55;
+  discountPercentage: number;
+  discountedPrice: number;
 }

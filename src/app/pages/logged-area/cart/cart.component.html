@@ -1,0 +1,49 @@
+<div class="cart-wrapper">
+  <main>
+    <section>
+      <article>
+        <h1>Meu carrinho</h1>
+        <p>Listagem de itens escolhidos</p>
+      </article>
+      <article>
+        <ul>
+          <li
+            [routerLink]="['/detail/' + item.id]"
+            *ngFor="let item of getProductCart; let i = index"
+          >
+            <div>{{ item.title }}</div>
+            <div>{{ item.quantity }}x</div>
+            <div>
+              {{
+                item.price - item.discountedPrice
+                  | currency : "BRL" : "R$ " : "2.2-2"
+              }}
+            </div>
+          </li>
+        </ul>
+        <h3 style="text-align: center; color: #e4e4e4">
+          <i class="las la-broom"></i>
+        </h3>
+      </article>
+    </section>
+  </main>
+  <aside>
+    <h1>Resumo</h1>
+    <div *ngIf="getProductCart.length > 0; else nothing">
+      <p>Qte de produtos: {{ cart.totalQuantity }}</p>
+      <p>Total: {{ cart.total | currency : "BRL" : "R$ " : "2.2-2" }}</p>
+      <p>
+        Total com desconto:
+        {{
+          cart.total - cart.discountedTotal | currency : "BRL" : "R$ " : "2.2-2"
+        }}
+      </p>
+    </div>
+    <ng-template #nothing>
+      <h3 style="text-align: center; color: #e4e4e4; margin-top: 0.5rem">
+        <i class="las la-broom"></i>
+      </h3>
+    </ng-template>
+    <button *ngIf="getProductCart.length > 0">Finalizar compra</button>
+  </aside>
+</div>

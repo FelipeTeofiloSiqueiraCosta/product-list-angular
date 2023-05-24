@@ -6,7 +6,10 @@
   <div class="cart">
     <a routerLink="cart">
       <span>Meu Carrinho</span>
-      <i class="las la-shopping-cart" data-items-length="1"></i>
+      <i
+        class="las la-shopping-cart"
+        [attr.data-items-length]="qteCartItems"
+      ></i>
     </a>
   </div>
 </nav>

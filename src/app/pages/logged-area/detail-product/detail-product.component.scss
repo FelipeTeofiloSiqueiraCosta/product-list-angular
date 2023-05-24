@@ -83,4 +83,45 @@
       border-bottom: 2px solid black;
     }
   }
+  .button-cart {
+    justify-content: center !important;
+    & > button {
+      margin-right: 0 !important;
+      padding-inline: 10px;
+    }
+  }
+}
+.button-cart {
+  display: flex;
+  justify-content: end;
+  margin-top: 2rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
+
+  button {
+    border: 0;
+    border-radius: 0.5rem;
+    background-color: #e4a61a;
+    color: #fff;
+
+    transition: all 0.3s;
+    &:hover {
+      background-color: #fcaf00;
+    }
+  }
+
+  .quantity-items-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    button {
+      padding: 0.5rem 1rem;
+    }
+  }
+  & > button {
+    margin-right: 1rem;
+    padding-inline: 10px;
+    font-weight: 100;
+  }
 }

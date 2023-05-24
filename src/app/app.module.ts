@@ -8,7 +8,7 @@ import { DetailProductComponent } from './pages/logged-area/detail-product/detai
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { VisibleDirectiveDirective } from './directives/visible-directive.directive';
-import { CartComponent } from './components/cart/cart.component';
+import { CartComponent } from './pages/logged-area/cart/cart.component';
 
 @NgModule({
   declarations: [

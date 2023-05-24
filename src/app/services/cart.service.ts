@@ -1,26 +1,51 @@
 import { Injectable } from '@angular/core';
 import { Cart } from '../interfaces/cart';
-import { Observable } from 'rxjs';
+
 import { HttpClient } from '@angular/common/http';
+import { ProductCart } from '../interfaces/productCart';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  private currentCartId: number = 0;
-  private currentCart: Cart | null = null;
+  private currentCart: Cart;
   constructor(private httpClient: HttpClient) {
-    this.currentCartId = JSON.parse(
-      localStorage.getItem('@first-app:cart') || ''
-    );
-    if (this.currentCartId != 0) {
-      this.getCart(this.currentCartId).subscribe((response) => {
-        this.currentCart = response;
-      });
+    const cart = localStorage.getItem('@first-app:cart');
+
+    if (cart) {
+      this.currentCart = JSON.parse(cart);
+    } else {
+      this.currentCart = {
+        discountedTotal: 0,
+        products: [],
+        total: 0,
+        totalQuantity: 0,
+      };
     }
   }
 
-  get getCurrentCart(): Cart | null {
+  public addProduct(product: ProductCart) {
+    let indexFinded = this.currentCart.products.findIndex(
+      (item) => item.id === product.id
+    );
+
+    if (indexFinded != -1) {
+      this.currentCart.products[indexFinded].quantity += product.quantity;
+    } else {
+      this.currentCart.products.push(product);
+    }
+
+    const total = product.price * product.quantity;
+
+    this.currentCart.total += total;
+    this.currentCart.totalQuantity += product.quantity;
+    this.currentCart.discountedTotal +=
+      product.discountedPrice * product.quantity;
+
+    localStorage.setItem('@first-app:cart', JSON.stringify(this.currentCart));
+  }
+
+  get getCurrentCart(): Cart {
     return this.currentCart;
   }
 
@@ -28,26 +53,7 @@ export class CartService {
     this.currentCart = cart;
   }
 
-  addCart() {
-    console.log('adding cart---');
-    this.httpClient
-      .post('https://dummyjson.com/carts/add', {
-        userId: 123,
-        products:
-          this.currentCart?.products.map((item) => {
-            return {
-              id: item.id,
-              quantity: item.quantity,
-            };
-          }) || [],
-      })
-      .subscribe((response) => {
-        console.log(response);
-      })
-      .unsubscribe();
-  }
-
-  getCart(cartId: number): Observable<Cart> {
-    return this.httpClient.get<Cart>(`https://dummyjson.com/carts/${cartId}`);
+  get getQuantityItems() {
+    return this.currentCart.products.length;
   }
 }

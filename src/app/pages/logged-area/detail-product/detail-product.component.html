@@ -21,5 +21,15 @@
     <p><span>Desconto: </span> {{ product?.discountPercentage }} %</p>
     <p><span>Avaliações: </span> {{ product?.rating }} Estrelas</p>
     <p><span>Marca: </span> {{ product?.brand }}</p>
+    <p><span>Quantidade em estoque: </span> {{ product?.stock }}</p>
   </div>
+</div>
+
+<div class="button-cart">
+  <div class="quantity-items-wrapper">
+    <button (click)="removeQuantity()">-</button>
+    {{ quantity }}
+    <button (click)="addQuantity()">+</button>
+  </div>
+  <button (click)="handleAddToCart()">Adicionar ao carrinho</button>
 </div>
